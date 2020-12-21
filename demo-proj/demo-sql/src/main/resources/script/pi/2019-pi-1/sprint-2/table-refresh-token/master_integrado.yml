@@ -1,0 +1,19 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 20201008-01
+      author: cparaguay
+      context: test, prod
+      comment: Table refresh token
+      changes:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-2/table-refresh-token/ddl.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8
+      rollback:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-2/table-refresh-token/rollback_ddl.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8

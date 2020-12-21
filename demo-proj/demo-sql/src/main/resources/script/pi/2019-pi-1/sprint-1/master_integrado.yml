@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: script/pi/2019-pi-1/sprint-1/tabla-usuario/master_integrado.yml

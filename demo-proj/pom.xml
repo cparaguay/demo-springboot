@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+    	<version>2.4.1</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.example.demo</groupId>
+	<artifactId>demo-proj</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo proj</name>
+	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>11</java.version>
+		<persistence-api.version>1.0.2</persistence-api.version>
+		<ojdbc6.version>v11.2.0.3.0</ojdbc6.version>
+		<commons-text.version>1.8</commons-text.version>
+		<springdoc-openapi-ui.version>1.5.2</springdoc-openapi-ui.version>
+		<h2database.version>1.4.200</h2database.version>
+		<jjwt.version>0.9.1</jjwt.version>
+		<sonar.projectKey>demo-app-springboot</sonar.projectKey>
+		<sonar.organization>dalozz-java</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>8c0943b941f6b85f548dc10fac8415cec909818f</sonar.login>
+		<sonar.languaje>java</sonar.languaje>
+		<sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
+	</properties>
+
+	<modules>
+		<module>demo-dom</module>
+		<module>demo-controller</module>
+		<module>demo-ear</module>
+		<module>demo-dto</module>
+		<module>demo-repository</module>
+		<module>demo-service</module>
+		<module>demo-exception</module>
+		<module>demo-interceptor</module>
+		<module>demo-util</module>
+	</modules>
+
+	<!-- Anadiendo repositorio git para dependencias que no estan el mvn central -->
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+	<!-- Manejando las versiones de dependencias especificas. -->
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>${persistence-api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.cparaguay</groupId>
+				<artifactId>oracle-jdbc</artifactId>
+				<version>v11.2.0.3.0</version>
+			</dependency>
+
+			<!-- Dependencias para generar documentacion de servicios rest con open 
+				api -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${springdoc-openapi-ui.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>${commons-text.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+			<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-collections4</artifactId>
+			    <version>4.4</version>
+			</dependency>
+
+			<!-- Base de datos en memoria -->
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${h2database.version}</version>
+			</dependency>
+
+			<!-- json web token -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

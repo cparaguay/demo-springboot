@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+
+    app-sql:
+        image: dalozz/app_sql:1.0
+        environment: 
+            - username=DEMO
+            - password=12345678
+            - urldatabase=@192.168.0.103
+            - portdatabase=1521
+            - service=ORCL
+            - changelogfile=/script/master_integrado_continuo.yaml
+        networks:
+            - web-tier
+            - db-tier             
+                    
+    app-demo:
+        image: dalozz/app_demo:1.0
+        build: .
+        environment: 
+            - username_db=DEMO
+            - password_db=12345678
+            - urldriver_db=jdbc:oracle:thin:@
+            - url_db=192.168.0.103
+            - port_db=1521
+            - service_db=ORCL
+            - driver_class_db=oracle.jdbc.driver.OracleDriver
+            - driver_name_db=ojdbc
+        restart: always
+        ports:
+            - "8080:8080"
+        networks:
+            - web-tier
+            - db-tier
+        volumes:
+            - ./logs:/pr/demo/pe/web/logs/
+            - ./logs:/opt/jboss/wildfly/standalone/log
+
+networks:
+    web-tier:
+        driver: bridge
+    db-tier:
+        driver: bridge

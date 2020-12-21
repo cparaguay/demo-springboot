@@ -1,0 +1,19 @@
+databaseChangeLog:
+  
+- changeSet:
+    id: 20190902-01
+    author: cparaguay
+    context: test, prod
+    comment: Tabla para valores configurables
+    changes:
+      sqlFile:
+        path: script/configuracion/tabla-cfg-valor/ddl.sql
+        splitStatements: true
+        splitComments: true
+        encoding: utf8
+    rollback:
+      sqlFile:
+        path: script/configuracion/tabla-cfg-valor/rollback_ddl.sql
+        splitStatements: true
+        splitComments: true
+        encoding: utf8

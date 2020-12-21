@@ -1,0 +1,16 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190902-01
+      author: cparaguay
+      context: mocks
+      comment: Cambios para que las urls apunten hacia los mocks server
+      runOnChange: true
+      changes:
+        sqlFile:
+          path: script/mocks/dml.sql
+          splitStatements: true
+          splitComments: true
+          encoding: utf8
+      rollback:
+

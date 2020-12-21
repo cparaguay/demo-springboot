@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20190902-02
+      author: cparaguay
+      context: test,prod
+      comment: Tabla para guardar los errores del servicio
+      changes:
+        sqlFile:
+          path: script/configuracion/tabla-error-servicio/ddl.sql
+          splitStatements: true
+          splitComments: true
+          encoding: utf8
+      rollback:
+        sqlFile:
+          path: script/configuracion/tabla-error-servicio/rollback_ddl.sql
+          splitSatatements: true
+          splitComments: true
+          encoding: utf8

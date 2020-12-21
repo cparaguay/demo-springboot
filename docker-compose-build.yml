@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+    app_demo:
+        image: dalozz/app_demo:1.0
+        build: .
+
+    app_sql:
+        image: dalozz/app_sql:1.0
+        build: 
+          context: ./
+          dockerfile: Dockerfile.sql

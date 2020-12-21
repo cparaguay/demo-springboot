@@ -1,0 +1,72 @@
+configuration:
+
+  status: INFO
+  name: leadLog4jConfig
+  properties:
+    property:
+      - name: defaultLayout
+        value: demo-BACK %d{yyyy-MM-dd HH:mm:ss} %-5p --- [%25t] %l - %m%n
+        
+      - name: patternCharset
+        value: UTF-8
+        
+      - name: logDir
+        value: /pr/demo/pe/web/logs/
+        
+      - name: file-name
+        value: demo-back
+        
+      - name: backupDir
+        value: /pr/demo/pe/web/logs/%d{yyyy}/%d{MM}
+  
+  packages: com.example.demo
+  
+  appenders:
+    rollingFile:
+      - name: demo_rolling_file
+        fileName: ${logDir}${file-name}.log
+        filePattern: ${backupDir}${file-name}-%d{yyyy-MM-dd}-%i.log
+        patternLayout:
+          pattern: ${defaultLayout}
+          charset: ${patternCharset}
+        policies:
+          sizeBasedTriggeringPolicy:
+            size: 20 MB
+          timeBasedTriggeringPolicy:
+            interval: 1
+            modulate: true
+        defaultRolloverStrategy:
+          max: 20
+  
+  loggers:
+    logger:
+     
+      - name: com.example.demo
+        level: info
+        additivity: false
+        appenderRef:
+          - ref: demo_rolling_file
+          
+      - name: httpclient.wire
+        level: trace
+        additivity: false
+        appenderRef:
+          - ref: demo_rolling_file
+
+      - name: liquibase
+        level: info
+        additivity: false
+        appenderRef:
+          - ref: demo_rolling_file
+          
+      - name: org.springframework
+        level: info
+        additivity: false
+        appenderRef:
+          - ref: consola
+
+          
+    root:
+      level: error
+      appenderRef:
+        ref:  demo_rolling_file

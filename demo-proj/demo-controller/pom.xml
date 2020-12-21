@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>demo-proj</artifactId>
+		<groupId>com.example.demo</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<name>demo controller</name>
+	<artifactId>demo-controller</artifactId>
+	<packaging>war</packaging>
+	<description>Demo project for Spring Boot - controller</description>
+
+	<dependencies>
+		<!-- Project modules [[ -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>demo-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>demo-sql</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>demo-util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>demo-interceptor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Project modules ]] -->
+
+
+		<!-- Arrancadores de spring boot [[ -->
+
+		<!-- Arracandor Web Conjunto de dependencias para iniciar los servicios 
+			web Spring web, Spring webmvc, jacksons y spring-boot-starter-tomcat. Excluimos 
+			dependencia para los logs(logback por defecto). -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Establecemos log4j2 para los logs. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!--Arracandor de Pruebas El iniciador de prueba. Conjunto de bibliotecas 
+			integradas: Spring Test, JUnit, Hamcrest y Mockito. Estas vienen integrada 
+			de manera automatica. Excluimos junit version 4, ya que usaremos la version 
+			5 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Brinda: - Reinicio automatico en las app que tenga esta dependencia, 
+			cuando detecta cambios en el classpath. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- Arrancadores de spring boot ]] -->
+
+		<!-- Utils -->
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Para leer y escribir yaml en las propiedades -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+		<!-- Anotaciones para logs y set/get -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<!-- Documentacion de los servicios -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.cparaguay</groupId>
+			<artifactId>oracle-jdbc</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<!-- Acciones durante la construcción -->
+	<build>
+		<finalName>demo-controller</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- attached to Maven test phase -->
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			<!-- Plugin necesario para iniciar contexto para posteriormente usarlo 
+				en la generacion de documentacion open api -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<profiles>
+						<profile>oa</profile>
+					</profiles>
+				</configuration>
+				<executions>
+					<execution>
+						<id>pre-integration-test</id>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			<!-- Complemento que se utilizan para las pruebas de integracion. Se utiliza 
+				para separar la ejecución de nuestra unidad y las pruebas de integración. 
+				Con esta configuración, nuestras pruebas unitarias se ejecutan primero con 
+				el complemento Maven Surefire y, justo después de empaquetar la aplicación, 
+				se ejecutan nuestras pruebas de integración. Para que esto funcione, debe 
+				seguir una convención de nomenclatura y sus pruebas de integración necesitan 
+				el postfix IT(o cualquier otro si lo configura). -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal> <!-- ejecuta pruebas de integración; este objetivo está vinculado a la fase 
+								de prueba de integración por defecto -->
+							<goal>verify</goal> <!-- verifica que las pruebas de integración pasaron; este objetivo está 
+								vinculado a la fase de verificación por defecto -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Plugin para la generacion de documentacion -->
+			<plugin>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-maven-plugin</artifactId>
+				<version>0.2</version>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<apiDocsUrl>http://localhost:8080/demo/v3/api-docs.yaml</apiDocsUrl>
+					<outputFileName>openapi.yaml</outputFileName>
+					<outputDir>${project.build.directory}</outputDir>
+				</configuration>
+			</plugin>
+
+
+		</plugins>
+	</build>
+</project>

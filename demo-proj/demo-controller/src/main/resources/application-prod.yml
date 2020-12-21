@@ -1,0 +1,29 @@
+# propiedades para entorno dockerizado de test
+# spring.profiles.active=prod
+  
+#Configurando el dataSource
+spring:
+  datasource:
+    jndi-name: java:jboss/jdbc/DEMO
+      
+   #Configuracion el jpa
+  jpa:
+    database: ORACLE
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        "[use_sql_comments]": true
+        "[format_sql]": true
+      
+#Configuraciones para la documentacion viva
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    oauth2-redirect-url: /security/login
+
+logging:
+  config: classpath:log4j2/log4j2.yaml

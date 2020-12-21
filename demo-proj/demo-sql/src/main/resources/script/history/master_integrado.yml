@@ -1,0 +1,21 @@
+databaseChangeLog:
+
+    # Scripts Iniciales
+  #- include:
+      #file: /script/adan/master_integrado.yml
+
+    # Scripts de configuracion inicial
+  - include:
+      file: script/configuracion/master_integrado.yml
+  
+  - changeSet:
+      id: 20190901-01
+      author: cparaguay
+      comment: tag inicial para el pase 1.0
+      changes:
+        tagDatabase:
+          tag: 1.0
+
+    # Sprints
+  - include:
+      file: script/pi/2019-pi-1/sprint-1/master_integrado.yml

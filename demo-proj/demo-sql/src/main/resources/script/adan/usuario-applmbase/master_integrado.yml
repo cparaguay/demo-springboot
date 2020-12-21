@@ -1,0 +1,20 @@
+databaseChangeLog:
+
+- changeSet:
+    id: 20190921
+    author: cparaguay
+    context: test, prod
+    comment: creando usuario para la aplicacion
+    changes:
+      sqlFile:
+        path: script/adan/usuario-applmbase/ddl.sql
+        splitStatements: true
+        stripComments: true
+        encoding: utf8
+
+    rollback:
+      sqlfile:
+        path: script/adan/usuario-applmbase/rollback_ddl.sql
+        splitStatements: true
+        stripComments: true
+        encoding: utf8        

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>demo-proj</artifactId>
+		<groupId>com.example.demo</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<name>demo util</name>
+	<artifactId>demo-util</artifactId>
+	<packaging>jar</packaging>
+	<description>Demo project sql for Spring Boot - util</description>
+
+	<dependencies></dependencies>
+
+</project>

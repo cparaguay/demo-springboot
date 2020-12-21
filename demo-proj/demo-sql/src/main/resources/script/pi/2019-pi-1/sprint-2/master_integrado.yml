@@ -1,0 +1,22 @@
+databaseChangeLog:
+
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/table-role-user/master_integrado.yml
+
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/tabla-user/master_integrado.yml
+       
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/insert-user-roles/master_integrado.yml
+      
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/values-jwt/master_integrado.yml
+      
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/table-refresh-token/master_integrado.yml
+
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/insert-usuarios/master_integrado.yml
+      
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/table-error-info/master_integrado.yml

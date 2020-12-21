@@ -1,0 +1,19 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 20201010-01
+      author: cparaguay
+      context: test, prod
+      comment: Table role user
+      changes:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-2/table-role-user/ddl.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8
+      rollback:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-2/table-role-user/rollback_ddl.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8

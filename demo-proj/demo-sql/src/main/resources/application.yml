@@ -1,0 +1,21 @@
+# propiedades para entorno dockerizado de test
+# spring.profiles.active=prod
+  
+#Configurando el dataSource
+server:
+  port: 8080
+
+#Configurando el dataSource
+spring:
+  datasource:
+    name: jdbc/DEMO
+    username: DEMO
+    password: 12345678
+    url: jdbc:oracle:thin:@127.0.0.1:1521:ORCL
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+      
+  liquibase:
+   enabled: true
+   drop-first: true
+   change-log: classpath:/script/master_integrado_continuo.yaml
+   contexts: test,mocks

@@ -1,0 +1,20 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 20200224-01
+      author: cparaguay
+      context: test, prod
+      comment: Create my table for sprint 02
+      changes:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-2/insert-usuarios/ddl.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8
+      rollback:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-2/insert-usuarios/rollback_ddl.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8
+      

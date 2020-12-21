@@ -1,0 +1,41 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190830-01
+      author: cparaguay
+      context: test, prod
+      comment: Creando mi primera tabla usuario 1.
+      changes:
+        sqlFile:
+          path: script/pi/2019-pi-1/sprint-1/tabla-usuario/dml_1.sql
+          splitStatements: true
+          stripComments: true
+          encoding: utf8
+            
+        rollback:
+          sqlFile:
+            path: /script/pi/2019-pi-1/sprint-1/tabla-usuario/rollback_dml_1.sql
+            splitStatements: true
+            stripComments: true
+            encoding: utf8
+            
+  - changeSet:
+      id: 20190830-02
+      author: cparaguay
+      context: test, prod
+      comment: Creando mi primera tabla usuario 2.
+      changes:
+        sqlFile:
+            path: script/pi/2019-pi-1/sprint-1/tabla-usuario/dml_2.sql
+            splitStatements: true
+            stripComments: true
+            encoding: utf8
+            
+        rollback:
+          sqlFile:
+            path: script/pi/2019-pi-1/sprint-1/tabla-usuario/rollback_dml_2.sql
+            splitStatements: true
+            stripComments: true
+            encoding: utf8            
+      
+      

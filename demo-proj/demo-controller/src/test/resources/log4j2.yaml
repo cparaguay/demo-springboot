@@ -1,0 +1,32 @@
+configuration:
+  status: INFO
+  name: leadLog4jConfig
+  properties:
+    property:
+      - name: defaultLayout
+        value: demo-BACK %magenta{%d{yyyy-MM-dd HH:mm:ss}} %clr{%-5p} --- [%25t] %l - %m%n
+      - name: patternCharset
+        value: UTF-8
+  packages: com.example.demo
+  
+  appenders:
+    console:
+      name: consola
+      target: SYSTEM_OUT
+      patternLayout:
+        pattern: ${defaultLayout}
+        charset: ${patternCharset}
+  
+  loggers:
+    logger:
+     
+      - name: com.example.demo
+        level: info
+        additivity: false
+        appenderRef:
+          - ref: consola
+          
+    root:
+      level: error
+      appenderRef:
+        ref:  consola

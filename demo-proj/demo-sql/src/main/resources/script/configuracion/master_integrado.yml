@@ -1,0 +1,10 @@
+databaseChangeLog:
+
+  - include:
+      file: script/configuracion/tabla-cfg-valor/master_integrado.yml
+  
+  - include:
+      file: script/configuracion/tabla-error-servicio/master_integrado.yml
+
+  - include:
+      file: script/configuracion/tabla-parametro/master_integrado.yml

@@ -1,0 +1,4 @@
+ databaseChangeLog:
+
+ - include:
+      file: script/adan/usuario-applmbase/master_integrado.yml

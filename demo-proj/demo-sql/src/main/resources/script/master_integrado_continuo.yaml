@@ -1,0 +1,23 @@
+databaseChangeLog:
+
+
+  # Scripts historicos
+  - include:
+      file: script/history/master_integrado.yml
+
+ # tag inicial para el sprint de turno
+  - changeSet:
+      id: 20190905
+      author: cparaguay
+      comment: tag para inicial para el sprint 2
+      changes:
+        tagDatabase:
+          tag: 2.0
+
+    # Sprint 02
+  - include:
+      file: script/pi/2019-pi-1/sprint-2/master_integrado.yml
+
+    # Scripts que apuntan los servicios a los mocks
+  - include:
+      file: script/mocks/master_integrado.yml
