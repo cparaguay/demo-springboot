@@ -39,12 +39,12 @@ spring.profiles.active
 spring.profiles.active =  dev
 ```
 
-![Minion](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/variables_de_entorno.png)
+![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/variables_de_entorno.png?raw=true?raw=true)
 
 ### Forma 02: STS (IDE SPRING)
 En la configuración del run tambien se puede establecer el perfil.
 
-![Minion](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/sts.png)
+![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/sts.png?raw=true)
 
 
 ## 2. Iniciando proyecto modo desarrollo  (DEV)
@@ -82,7 +82,7 @@ mvn spring-boot:run
 
 - **Modo ide STS:** Correr la clase principal
 
-![Minion](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/run_main.png)
+![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/run_main.png?raw=true)
 
 
 ## Estructura de los modulos
@@ -137,16 +137,16 @@ Este perfil usa las configuraciones para las pruebas de integración.
 Como base de datos, usa H2. Una base de datos en memoria para realizar las pruebas con el modelo de persistencia.
 Ademas que se ejecuta automaticamente durante el ciclo de vida de maven.
 
-![profile-it](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/properties-it.png)
+![profile-it](https://github.com/cparaguay/demo-springboot/blob/master/img/properties-it.png?raw=true)
 ### Perfil DEV: application-dev
 Este perfil usa las configuraciones para la fase de desarrollo.
 
-![profile-it](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/properties-dev.png)
+![profile-it](https://github.com/cparaguay/demo-springboot/blob/master/img/properties-dev.png?raw=true)
 
 ### Perfil PROD: application-prod
 Este perfil usa las configuraciones para la fase del despliegue de producción.
 
-![profile-it](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/properties-prod.png)
+![profile-it](https://github.com/cparaguay/demo-springboot/blob/master/img/properties-prod.png?raw=true)
 
 ----
 
@@ -155,13 +155,13 @@ Este perfil usa las configuraciones para la fase del despliegue de producción.
 Las pruebas de integración, normalmente se encuentran en el paquete com.example.demo.it
 #### Lanzando una prueba de integracion
 
-![profile-it](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/prueba_it_example.png)
+![profile-it](https://github.com/cparaguay/demo-springboot/blob/master/img/prueba_it_example.png?raw=true)
 
 #### Resultado de una prueba de integración
 
 Por cada clase de prueba de integración se levanta un contexto web y de base de datos.
 
-![profile-it](https://gitlab.com/cristhian_java/demo-app-springboot/-/raw/develop/img/resultado_it.png)
+![profile-it](https://github.com/cparaguay/demo-springboot/blob/master/img/resultado_it.png?raw=true)
 
 ## 2. Modo compilación 
 Se realiza durante la compilacion. Es transparente para el desarrollador.
