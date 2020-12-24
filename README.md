@@ -18,8 +18,15 @@ Ejemplo de proyecto spring boot con las siguientes tecnologias:
 * [Swagger - Open Api, documentación del proyecto](#documentación-del-proyecto)
 
 ## Getting Started
+## 1. Instalacion de lombok.
 
-## 1. Definiendo perfil
+- Descargar la libreria https://projectlombok.org/download
+- Instalar en la ide (eclipse o sts)
+![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/lombok_1.png?raw=true?raw=true)
+![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/lombok_2.png?raw=true?raw=true)
+![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/lombok_3.png?raw=true?raw=true)
+
+## 2. Definiendo perfil
 Los perfiles son definiciones de variables para poder
 trabajar con spring boot y con un entorno personalizado.
 El proyecto trabaja con 3:
@@ -47,7 +54,7 @@ En la configuración del run tambien se puede establecer el perfil.
 ![Minion](https://github.com/cparaguay/demo-springboot/blob/master/img/sts.png?raw=true)
 
 
-## 2. Iniciando proyecto modo desarrollo  (DEV)
+## 3. Iniciando proyecto modo desarrollo  (DEV)
 
 ### Estableciendo configuracion de base de datos
 En este caso vamos a usar oracle, para ellos usaremos el archivo **_application-dev**
